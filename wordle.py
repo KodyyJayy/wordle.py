@@ -92,7 +92,8 @@ def start_game():
 
 		if guess.lower() == randomWord.lower():
 			clear_console()
-			print('You win!')
+			print('Correct!')
+			print('You got the word in ' + str(curr_round + 1) + (' tries!' if (curr_round + 1) > 1 else " try!"))
 			guess_arr = split_word(guess.lower())
 			check_letters(answer_arr, guess_arr)
 			rematch()
