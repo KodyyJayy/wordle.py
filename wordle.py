@@ -3,8 +3,8 @@ import random
 
 def get_random_word(file):
 	lines = open(file).read().splitlines()
-	chosenWord = random.choice(lines)
-	return chosenWord
+	chosen_word = random.choice(lines)
+	return chosen_word
 
 def split_word(word):
 	return [char for char in word]
@@ -15,9 +15,6 @@ def check_dict(word):
 
 letter_place_arr = []
 def check_letters(answer_arr, guess_arr):
-	#print(guess_arr)
-	#print(answer_arr)
-
 	current_index = 0
 
 	for letter in guess_arr:
@@ -74,9 +71,8 @@ def start_game():
 	print(' • A plus (+) means the letter is in the word and in the correct place')
 	print(' • A slash (/) means the letter is in the word but not the correct place')
 	print('------------------------------------------------------------------------')
-	print(' ')
-	randomWord = get_random_word('words.txt')
-	answer_arr = split_word(randomWord.lower())
+	random_word = get_random_word('words.txt')
+	answer_arr = split_word(random_word.lower())
 
 	max_rounds = 6
 	curr_round = 0
@@ -91,7 +87,7 @@ def start_game():
 		print('')
 		guess = input("Make a guess: ")
 
-		if guess.lower() == randomWord.lower():
+		if guess.lower() == random_word.lower():
 			clear_console()
 			print('Correct!')
 			print('You got the word in ' + str(curr_round + 1) + (' tries!' if (curr_round + 1) > 1 else " try!"))
@@ -115,7 +111,7 @@ def start_game():
 			print('You already tried this word!')
 			continue
 
-		if guess != randomWord:
+		if guess != random_word:
 			curr_round += 1
 			print("Incorrect!")
 			print("Guesses Remaining: " + str(max_rounds - curr_round))
@@ -127,7 +123,7 @@ def start_game():
 			check_letters(answer_arr, guess_arr)
 
 			if curr_round >= max_rounds:
-				print('Game over, the word was: ' + randomWord)
+				print('\nGame over, the word was: ' + random_word)
 				rematch()
 
 start_game();
