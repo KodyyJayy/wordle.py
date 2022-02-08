@@ -3,9 +3,8 @@ import random
 
 def get_random_word(file):
 	lines = open(file).read().splitlines()
-	randline = random.choice(lines)
-	#print(randline)
-	return randline
+	chosenWord = random.choice(lines)
+	return chosenWord
 
 def split_word(word):
 	return [char for char in word]
