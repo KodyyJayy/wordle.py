@@ -1,6 +1,9 @@
 import os
 import random
 
+if os.name != "nt":
+	exit()
+
 def get_random_word(file):
 	lines = open(file).read().splitlines()
 	chosen_word = random.choice(lines)
@@ -84,6 +87,7 @@ def start_game():
 	guessed_words = []
 
 	while True:
+		os.system("title Wordle")
 		print('')
 		guess = input("Make a guess: ")
 
