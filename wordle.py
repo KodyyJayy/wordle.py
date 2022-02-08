@@ -41,7 +41,7 @@ def check_letters(answer_arr, guess_arr):
 
 			else:
 
-				if letter_place_arr.count(letter) >= freq_ans:
+				if letter_place_arr.count(letter) >= freq_ans: # if the current letter is in the array more than the answer
 					print(letter + ' -')
 				else:
 					print(letter + ' /')
@@ -69,6 +69,7 @@ def start_game():
 	clear_console()
 	letter_place_arr.clear()
 	print('-------------------------------- WORDLE --------------------------------')
+	print(' • You get 6 guesses to try guess the word')
 	print(' • A minus (-) means the letter is not in the word')
 	print(' • A plus (+) means the letter is in the word and in the correct place')
 	print(' • A slash (/) means the letter is in the word but not the correct place')
@@ -87,7 +88,7 @@ def start_game():
 	guessed_words = []
 
 	while True:
-
+		print('')
 		guess = input("Make a guess: ")
 
 		if guess.lower() == randomWord.lower():
