@@ -129,6 +129,4 @@ def start_game():
 				print('Game over, the word was: ' + randomWord)
 				rematch()
 
-	start_game();
-
 start_game();
